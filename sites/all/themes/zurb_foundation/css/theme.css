@@ -1,3 +1,20 @@
 h2.pane-title {
     text-align: center;
 }
+.block-menu-menu-magazine-menu ul.menu li {
+    float:left;
+    list-style:none;
+    background:none;
+    margin:0;
+}
+.block-menu-menu-magazine-menu ul.menu li a {
+    border:1px solid #ccc;
+    padding:5px;
+    text-decoration:none;
+    margin:2px;
+    display:block;
+}
+.block-menu-menu-magazine-menu ul.menu li a:hover {
+    background:#ccc;
+    color:#fff;
+}
