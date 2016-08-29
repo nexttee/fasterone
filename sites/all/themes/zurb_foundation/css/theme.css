@@ -1,6 +1,9 @@
 h2.pane-title {
     text-align: center;
 }
+.block-menu-menu-magazine-menu ul.menu {
+    margin-left:340px;
+}
 .block-menu-menu-magazine-menu ul.menu li {
     float:left;
     list-style:none;
@@ -8,7 +11,7 @@ h2.pane-title {
     margin:0;
 }
 .block-menu-menu-magazine-menu ul.menu li a {
-    border:1px solid #ccc;
+    xborder:1px solid #ccc;
     padding:5px;
     text-decoration:none;
     margin:2px;
@@ -17,4 +20,7 @@ h2.pane-title {
 .block-menu-menu-magazine-menu ul.menu li a:hover {
     background:#ccc;
     color:#fff;
+}
+.block-block-1.header {
+    clear:both;
 }
