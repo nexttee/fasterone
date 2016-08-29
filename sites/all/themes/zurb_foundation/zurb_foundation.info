@@ -12,6 +12,9 @@ stylesheets[all][] = css/normalize.css
 ; Foundation framework stylesheets
 stylesheets[all][] = css/foundation.min.css
 
+; Custom Theme stylesheets
+stylesheets[all][] = css/theme.css
+
 ; Modernizr acts as a shim for HTML5 elements for older browsers
 ; as well as detection for mobile devices.
 scripts[] = js/vendor/modernizr.js
