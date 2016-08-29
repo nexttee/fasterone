@@ -70,7 +70,7 @@ function zurb_foundation_breadcrumb($variables) {
     $breadcrumbs .= '<li class="current"><a href="#">' . $title . '</a></li>';
     $breadcrumbs .= '</ul>';
 
-    return $breadcrumbs;
+    return "";//$breadcrumbs;
   }
 }
 
