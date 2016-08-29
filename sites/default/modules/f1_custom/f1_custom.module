@@ -1,0 +1,44 @@
+<?php
+
+function computed_field_field_rating_compute(&$entity_field, $entity_type, $entity, $field, $instance, $langcode, $items) {
+	$field_items = field_get_items($entity_type, $entity, 'field_ratings');
+	
+	$total = 0;
+	foreach ($field_items as $item) {
+	$total += $item['value'];
+	}
+	
+	$entity_field[0]['value'] = $total/(count($field_items));
+}
+
+function f1_custom_form_alter(&$form, $form_state, $form_id) {
+  switch ($form_id) {
+		case 'views_exposed_form':
+			if ($form['#action'] =='/players') {
+				$form['endofform'] = array(
+					'#markup' => l("New","node/add/player",array("query"=>array("destination"=>"players"),"attributes"=>array("class"=>"button"))),
+				);
+			}
+			break;
+	}
+}
+
+function f1_custom_menu(){
+	$items['draft/%node'] = array(
+		'title' => 'Mark Player as Drafted',
+		'page callback' => 'f1_custom_draft_player',
+		'page arguments' => array(1),
+		'access arguments' => array('administer nodes'),
+	);	
+	return $items;
+}
+
+function f1_custom_draft_player($node) {
+	if ($node->drafted == 1) {
+		$node->drafted = 0;
+	}else {
+		$node->drafted = 1;
+	}
+	node_save($node);
+	drupal_goto($_GET['destination']);
+}

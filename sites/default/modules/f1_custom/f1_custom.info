@@ -1,0 +1,4 @@
+name = Custom FasterOne Hooks for Drupal
+description = Provides hook alters and custom functions
+core = 7.x
+package = F1

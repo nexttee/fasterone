@@ -1,0 +1,219 @@
+/* This file will hold styles for the mobile version of your website (mobile first). */
+/* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
+body {
+	padding-top:20px;
+}
+.panel-panel.grid-6 {
+	height:160px;
+	xborder-top:2px solid #000;
+	xborder-bottom:2px solid #000;
+}
+.views-field-field-image {
+	float:left;
+	padding:0 10px 5px 0;
+} 
+h2 {
+	margin-bottom:5px;
+	font-size:18px;
+}
+.view-taxonomy-term.view-display-id-block_1 .flexslider_views_slideshow_slide,
+.view-taxonomy-term.view-display-id-block_1 .views-row {
+	height:100px;
+}
+.flex-control-nav {
+	bottom:0;
+}
+.flexslider,
+.flex-nav-container {
+	margin-bottom:0;
+}
+.views-fluidgrid-item {
+	width:281px;
+	margin:5px;
+	border:2px solid #888;
+}
+.views-fluidgrid-item .views-field-created,
+.views-fluidgrid-item .views-field-term-node-tid {
+	background:#888;
+	padding:10px;
+	color:#aaa;
+	font-weight:bold;
+}
+.views-fluidgrid-item .views-field-term-node-tid a {
+	text-decoration:none;
+	color:#ccc;
+	font-weight:bold;
+}
+.views-fluidgrid-item .views-field-title a {
+	padding:10px;
+	display:block;
+	color:#000;
+	font-weight:bold;
+	text-decoration:none;
+}
+.views-fluidgrid-item .views-field-field-image {
+	float:none;
+	padding:0;
+}
+#block-menu-menu-social-media ul.menu {
+	height:34px;
+}
+#block-menu-menu-social-media ul.menu,
+#block-menu-menu-social-media ul li {
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+	#block-menu-menu-social-media ul.menu li a {
+		display:block;
+		height:32px;
+		width:32px;
+		overflow:hidden;
+		xborder:1px solid #000;
+		background:#ccc;
+		text-indent:-99999px;
+	}
+	#block-menu-menu-social-media ul.menu li {
+		float:left;
+		padding-right:1px;
+	}
+@media only screen and (min-width: 480px) {
+	#block-menu-menu-social-media ul.menu li {
+		padding-right:80px;
+		padding-top:10px;
+	}
+	#block-menu-menu-social-media ul.menu li.first {
+		padding-left:100px;
+	}
+	#block-menu-menu-social-media ul.menu li.last {
+		padding-right:0px;
+	}
+}
+#block-menu-menu-social-media ul li a.facebook_icon {
+	background:url(../images/social_media/facebook_icon.png) no-repeat;
+}
+#block-menu-menu-social-media ul li a.twitter_icon {
+	background:url(../images/social_media/twitter_icon.png) no-repeat;
+}
+#block-menu-menu-social-media ul li a.pinterest_icon {
+	background:url(../images/social_media/pinterest_icon.png) no-repeat;
+}
+#block-menu-menu-social-media ul li a.youtube_icon {
+	background:url(../images/social_media/youtube_icon.png) no-repeat;
+}
+#block-menu-menu-social-media ul li a.instagram_icon {
+	background:url(../images/social_media/instagram_icon.png) no-repeat;
+}
+#block-menu-menu-social-media ul li a.untappd_icon {
+	background:url(../images/social_media/untappd_icon.png) no-repeat;
+}
+#block-menu-menu-social-media ul li a.flickr_icon {
+	background:url(../images/social_media/flickr_icon.png) no-repeat;
+}
+#block-menu-menu-social-media ul li a.foursquare_icon {
+	background:url(../images/social_media/foursquare_icon.png) no-repeat;
+}
+#block-menu-menu-social-media ul li a.linkedin_icon {
+	background:url(../images/social_media/linkedin_icon.png) no-repeat;
+}
+#block-menu-menu-social-media ul li a.egoweed {
+	background:url(../images/social_media/egoweed_logo.png) no-repeat;
+}
+a.button {
+	-webkit-appearance: none;
+	-moz-border-radius: 11px;
+	-webkit-border-radius: 11px;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding;
+	background: -moz-linear-gradient(top center, #fff 0%, #ddd 100%);
+	border-radius: 11px;
+	background: #ddd url(../images/button.png) repeat-x;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #ddd));
+	background: -moz-linear-gradient(top center,	#fff 0%,	#ddd 100%);
+	border: 1px solid;
+	border-color: #ddd #bbb #999;
+	cursor: pointer;
+	color:	#000;
+	font: bold 12px/1.2 Arial, sans-serif;
+	outline: 0;
+	overflow: visible;
+	padding: 3px 10px 4px;
+	text-shadow: #fff 0 1px 1px;
+	width: auto;
+	display:block;
+	text-decoration:none;
+	margin:1.6em 0 0 10px;
+}
+.button,
+#edit-submit-players {
+	float:left;
+}
+tr.drafted-Yes {
+	text-decoration:line-through;
+}
+.zone-menu-wrapper ul.menu li {
+	float:left;
+	list-style:none;
+	background:none;
+	margin:0;
+}
+.zone-menu-wrapper ul.menu li a,
+.views-field-counter a {
+	border:1px solid #ccc;
+	padding:5px;
+	text-decoration:none;
+	margin:2px;
+	display:block;
+}
+.zone-menu-wrapper ul.menu li a:hover,
+.views-field-counter a:hover {
+	background:#ccc;
+	color:#fff;
+}
+.block-search {
+	float:right;
+}
+.field-type-image img {
+	width:100%;
+	height:100%;
+}
+@media all and (max-width:480px) {
+	#admin-menu li {
+		display:none;
+	}
+	#admin-menu li:first-child {
+		display:block;
+	}
+	#admin-menu:hover li {
+		display:block;
+	}
+}
+
+.site-slogan {
+	font-style: italic;
+	font-size: 2em;
+	text-align:center;
+}
+.site-name-slogan {
+	margin:auto 0;
+	width:100%;
+}
+.site-name {
+	text-align:center;
+}
+@media all and (min-width:980px) {
+	#region-menu .region-inner {
+		list-style:none;
+		position:relative;
+		left:23%;
+	}
+	#region-menu .region-inner ul {
+		float:right;
+		position:relative;
+		left:-50%;
+		text-align:left;
+	}
+	body.not-logged-in #region-menu .region-inner ul {
+		left:-56%;
+	}
+}
