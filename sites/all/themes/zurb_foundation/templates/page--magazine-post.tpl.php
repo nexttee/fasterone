@@ -138,15 +138,6 @@
         </ul>
       <?php endif; ?>
 
-      <?php $hero_image = $page['content']['system_main']['nodes'][arg(1)]['body']['#object']->field_hero_image; ?>
-      <?php //print_r($hero_image) ?>
-
-      <?php if ($title): ?>
-        <?php print render($title_prefix); ?>
-        <h1 id="page-title" class="title"><?php print $title; ?></h1>
-        <?php print render($title_suffix); ?>
-      <?php endif; ?>
-
       <?php print render($page['content']); ?>
     </div>
     <!--/.l-main region -->

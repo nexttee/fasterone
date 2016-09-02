@@ -477,6 +477,14 @@ function zurb_foundation_preprocess_node(&$variables) {
   }
 
   $variables['title_attributes_array']['class'][] = 'node-title';
+
+  if ($variables['type'] == "magazine_post") {
+    //print_r($variables['node']);
+    $variables['magazine_post'] = array(
+      "image" => "image",
+      "category" => "category",
+    );
+  }
 }
 
 /**

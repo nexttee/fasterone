@@ -1,8 +1,10 @@
 h2.pane-title {
     text-align: center;
+    text-transform: uppercase;
+    font-size:1em;
 }
 .block-menu-menu-magazine-menu ul.menu {
-    margin-left:340px;
+    margin-left:320px;
 }
 .block-menu-menu-magazine-menu ul.menu li {
     float:left;
@@ -12,10 +14,12 @@ h2.pane-title {
 }
 .block-menu-menu-magazine-menu ul.menu li a {
     xborder:1px solid #ccc;
-    padding:5px;
+    padding:5px 11px;
     text-decoration:none;
     margin:2px;
     display:block;
+    text-transform: uppercase;
+    color:#000;
 }
 .block-menu-menu-magazine-menu ul.menu li a:hover {
     background:#ccc;
@@ -23,4 +27,69 @@ h2.pane-title {
 }
 .block-block-1.header {
     clear:both;
+}
+div.page {
+    padding-top:29px;
+}
+.l-header-region {
+    border-bottom:1px solid #000;
+    border-top:1px solid #000;
+}
+.l-footer-columns {
+    border-top:1px solid #000;
+}
+.footer-fourth {
+    float:right;
+    margin-top:20px;
+}
+table,
+table tr.even,
+table tr.alt,
+table tr:nth-of-type(even),
+.panel {
+    background:#fff;
+    border:none;
+}
+
+.view-display-id-panel_pane_2 .views-row {
+    float:left;
+    width:243px;
+    xborder:1px solid #000;
+    height:400px;
+    margin-right:120px;
+    text-align: center;
+}
+.view-magazine-content.view-display-id-panel_pane_2 .views-row.views-row-3,
+.view-magazine-content.view-display-id-panel_pane_2 .views-row.views-row-6 {
+    margin-right:0;
+}
+.pane-magazine-content-panel-pane-2 {
+    border-top:1px solid #000;
+}
+.view-magazine-content.view-display-id-panel_pane_1 .views-field-title {
+    xposition: absolute;
+    xbottom: 0px;
+    xleft: 140px;
+    font-size: 3em;
+    text-align:center;
+    font-weight: bold;
+    xcolor: #fff;
+    xfont-family: serif;
+    xtext-shadow: 7px 7px 7px #000000;
+}
+.field-name-field-magazine-category ul li {
+    list-style: none;
+    text-align:center;
+    width:100%;
+    text-transform: uppercase;
+}
+.pane-magazine-content-panel-pane-3 {
+    float:left;
+    width:75%;
+    border-top:1px solid #000;
+}
+.pane-magazine-content-panel-pane-4 {
+    float:right;
+    width:25%;
+    border-top:1px solid #000;
 }
