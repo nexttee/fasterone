@@ -1,0 +1,8 @@
+name = Views Slideshow Swipe
+core = 7.x
+description = Adds swipe capability to views slideshow.
+
+dependencies[] = libraries
+dependencies[] = views_slideshow
+
+package = views

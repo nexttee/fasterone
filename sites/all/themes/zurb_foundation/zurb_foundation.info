@@ -21,6 +21,18 @@ scripts[] = js/vendor/modernizr.js
 
 ; Foundation framework scripts.
 scripts[] = js/foundation.min.js
+scripts[] = js/theme.js
+
+fonts[google_fonts_api][] = "Libre Baskerville&subset=latin#700"
+fonts[google_fonts_api][] = "Libre Baskerville&subset=latin#italic"
+fonts[google_fonts_api][] = "Libre Baskerville&subset=latin#regular"
+fonts[google_fonts_api][] = "Roboto&subset=latin#100"
+fonts[google_fonts_api][] = "Roboto&subset=latin#100italic"
+fonts[google_fonts_api][] = "Roboto&subset=latin#300"
+fonts[google_fonts_api][] = "Roboto&subset=latin#300italic"
+fonts[google_fonts_api][] = "Roboto&subset=latin#500"
+fonts[google_fonts_api][] = "Roboto&subset=greek-ext#500italic"
+fonts[google_fonts_api][] = "Roboto&subset=latin#700"
 
 ; Regions are output in the page.tpl.php
 regions[header]              = Header
@@ -30,6 +42,7 @@ regions[featured]            = Featured
 regions[content]             = Content
 regions[sidebar_first]       = Left Sidebar
 regions[sidebar_second]      = Right Sidebar
+regions[triptych_top]        = Callout top
 regions[triptych_first]      = Callout one
 regions[triptych_middle]     = Callout two
 regions[triptych_last]       = Callout three

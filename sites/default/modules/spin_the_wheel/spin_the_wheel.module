@@ -1,0 +1,93 @@
+<?php
+/**
+ * Implements hook_help()
+ */
+function spin_the_wheel_help($path, $arg) {
+  switch ($path) {
+    case "admin/help#spin_the_wheel":
+      return '' . t("Provides a 'spin-the-wheel' formatter for an integer field") . '';
+      break;
+  }
+}
+
+/**
+ * Implements hook_field_formatter_info()
+ * Borrowed from http://www.metaltoad.com/blog/drupal-7-tutorial-creating-custom-formatters
+ */
+function spin_the_wheel_field_formatter_info() {
+  return array(
+    'spinthewheel_formatter' => array( //Machine name of the formatter
+      'label' => t('Spin the Wheel'),
+      'field types' => array('list_boolean'), //This will only be available to integer fields. Borrowed from https://api.drupal.org/comment/60576#comment-60576
+      'settings'  => array(), //No settings needed
+    ),
+  );
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function spin_the_wheel_block_info() {
+  $blocks = array();
+  $blocks['angular_test'] = array(
+    'info' => t('Test Angular'),
+  );
+  $blocks['spin_the_wheel'] = array(
+    'info' => t('Spin the Wheel'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function spin_the_wheel_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'angular_test':
+      drupal_add_js('https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js', 'file');
+      drupal_add_css('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', 'file');
+      drupal_add_js(drupal_get_path('module', 'spin_the_wheel') .'/js/myController.js', 'file');
+      drupal_add_css(drupal_get_path('module', 'spin_the_wheel') .'/css/style.css', 'file');
+      $block['subject'] = '';
+      $block['content'] = file_get_contents(drupal_get_path('module', 'spin_the_wheel') .'/angular_test.html');
+      break;
+    case 'spin_the_wheel':
+      _load_supporting_frontend_code();
+      $block['subject'] = '';
+      $block['content'] = file_get_contents(drupal_get_path('module', 'spin_the_wheel') .'/spin_the_wheel.html');
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ * Borrowed from http://www.metaltoad.com/blog/drupal-7-tutorial-creating-custom-formatters
+ */
+function spin_the_wheel_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array(); // Initialize the variable
+  foreach ($items as $delta => $item) {
+    if ($item['value']) {
+      _load_supporting_frontend_code();
+      //Read the contents of the HTML file instead of writing HTML here for easy code maintenance
+      $element[$delta]['#markup'] = file_get_contents(drupal_get_path('module', 'spin_the_wheel') .'/spin_the_wheel.html');
+    }
+  }
+  return $element;
+}
+
+function _load_supporting_frontend_code() {
+  //Load required CSS file(s)
+  drupal_add_css(drupal_get_path('module', 'spin_the_wheel') .'/styles/spin_the_wheel.css', 'file');
+
+  //Load required JS file(s)
+  drupal_add_js(drupal_get_path('module', 'spin_the_wheel') .'/scripts/angular.min.js', 'file');
+  drupal_add_js(drupal_get_path('module', 'spin_the_wheel') .'/scripts/spin_the_wheel.js', 'file');
+  drupal_add_js(drupal_get_path('module', 'spin_the_wheel') .'/scripts/TweenMax.js', 'file');
+  drupal_add_js(drupal_get_path('module', 'spin_the_wheel') .'/scripts/modernizr.js', 'file');
+  drupal_add_js(drupal_get_path('module', 'spin_the_wheel') .'/scripts/lodash.js', 'file');
+}

@@ -1,0 +1,21 @@
+.product-wrapper{
+	border:2px solid #E2E2E2;
+	padding: 0 10px 10px 10px;
+	background: #F1F1F1;
+	margin-top: 10px;
+	border-radius: 5px;
+}
+.product-wrapper img{
+	width: 98%;
+	border:1px solid #DEDEDE;
+	margin-bottom: 10px;
+}
+.btn {
+    margin-right: 5px;
+}
+
+.button {
+	color: white;
+	border-radius: 4px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}

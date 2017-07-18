@@ -1,0 +1,54 @@
+<?php
+/**
+ * @file
+ * Implements a jQuery TouchSwipe plugin with Views Slideshow.
+ *
+ * Based upon guide at:
+ * http://www.daymuse.com/blogs/creating-swiping-hero-drupal
+ */
+
+/**
+ * Implements hook_help().
+ */
+function views_slideshow_swipe_help($path, $arg) {
+  switch($path) {
+    case 'admin/help#views_slideshow_swipe':
+      $output = '';
+      $output .= '<h3>' . t('About Views Slideshow Swipe') . '</h3>';
+      $output .= '<p>Views Slideshow Swipe integrates the tutorial found on <a href="http://www.daymuse.com/blogs/creating-swiping-hero-drupal">DayMuse Studios</a> into a plug and play Drupal module</p>';
+      $output .= '<p>To install you will need to download and install the <a href="https://github.com/mattbryson/TouchSwipe-Jquery-Plugin">jquery TouchSwipe plugin from GitHub</a> and place into your libraries directory under so that the path jquery.touchSwipe/jquery.touchSwipe.min.js exists.</p>';
+      $output .= '<p>If you want to change the selector that the touch interface binds to you\'ll need to set the variable "views_slideshow_swipe_selector." There is no GUI for this yet but this can be accomplished via Drush and the vset command or via a $conf setting within settings.php</p>';
+    return $output;
+
+  }
+}
+
+
+function views_slideshow_swipe_init() {
+  if (in_array(arg(0),array('bg','foxchase'))) {
+    drupal_add_library('jquery.touchSwipe', 'jquery.touchSwipe', TRUE);
+
+    drupal_add_js(drupal_get_path('module', 'views_slideshow_swipe') . '/views_slideshow_swipe.js');
+
+    // Selector to use for enabling swipe.
+    // @TODO: Make a GUI configuration for setting this variable.
+    $swipe_selector = variable_get('views_slideshow_swipe_selector', '.views-slideshow-cycle-main-frame-row-item');
+    drupal_add_js(array('views_slideshow_swipe' => array('swipe_selector' => $swipe_selector)), 'setting');
+  }
+}
+
+/**
+ * Implements hook_library().
+ */
+function views_slideshow_swipe_library() {
+  $libraries['jquery.touchSwipe'] = array(
+    'title' => 'jQuery TouchSwipe',
+    'website' => 'https://github.com/mattbryson/TouchSwipe-Jquery-Plugin',
+    'js' => array(
+      libraries_get_path('jquery.touchSwipe') . '/jquery.touchSwipe.min.js' => array(),
+    ),
+    'version' => '1.5',
+  );
+  return $libraries;
+}
+

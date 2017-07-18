@@ -1,5 +1,37 @@
 <?php
 
+function f1_custom_init() {
+	drupal_add_html_head_link(
+		array(
+			'rel' => 'apple-touch-icon',
+			'href' => '/sites/deafult/themes/f1/images/f1_114x114.png',
+			'type' => 'image/png')
+	);
+}
+
+function f1_custom_node_view_alter(&$build) {
+	if ($build['#view_mode'] == 'full' && isset($build['field_carousel'])) {
+
+		if (!empty($build['field_carousel'])) {
+			unset($build['field_image']);
+		}
+	}
+
+	// Add a #post_render callback to act on the rendered HTML of the node.
+	$build['#post_render'][] = 'my_module_node_post_render';
+}
+
+/**
+ * Implements hook_preprocess_entity().
+ */
+function f1_custom_preprocess_entity(&$variables) {
+	if ($variables['entity_type'] == 'paragraphs_item') {
+		if (!empty($variables['field_slides'])) {
+			dpm($variables);
+		}
+	}
+}
+
 function computed_field_field_rating_compute(&$entity_field, $entity_type, $entity, $field, $instance, $langcode, $items) {
 	$field_items = field_get_items($entity_type, $entity, 'field_ratings');
 	
@@ -24,12 +56,18 @@ function f1_custom_form_alter(&$form, $form_state, $form_id) {
 }
 
 function f1_custom_menu(){
-	$items['draft/%node'] = array(
+	/*$items['draft/%node'] = array(
 		'title' => 'Mark Player as Drafted',
 		'page callback' => 'f1_custom_draft_player',
 		'page arguments' => array(1),
 		'access arguments' => array('administer nodes'),
-	);	
+	);
+	$items['teams/power-rankings/%node/%'] = array(
+		'title' => 'Adjust Team Power Ranking',
+		'page callback' => 'f1_custom_adjust_power_ranking',
+		'page arguments' => array(2,3),
+		'access arguments' => array('administer nodes'),
+	);*/
 	return $items;
 }
 
@@ -42,3 +80,38 @@ function f1_custom_draft_player($node) {
 	node_save($node);
 	drupal_goto($_GET['destination']);
 }
+
+function f1_custom_adjust_power_ranking($node, $arg) {
+	//print_r(array_keys((array)$node));
+	print_r($node->field_ratings);
+	$arg = urldecode($arg);
+	print $arg."<br>";
+	$base_rank = $node->field_rating;
+	if ($arg = str_replace("+","",$arg)) {
+		$base_rank += $arg;
+	}
+	if ($arg = str_replace("-","",$arg)) {
+		$base_rank += $arg;
+	}
+	$index = count($node->field_ratings['und']);
+	print $arg."<br>";
+	print $index."<br>";
+	print $base_rank;
+	exit;
+	node_save($node);
+	drupal_goto($_GET['destination']);
+}
+/*
+ *
+l("Big-Win","teams/power-rankings/".$nid."/2+");
+l("Big-Loss","teams/power-rankings/".$nid."/2-");
+l("Win","teams/power-rankings/".$nid."/1+");
+l("Loss","teams/power-rankings/".$nid."/1-");
+l("Same","teams/power-rankings/".$nid."/0");
+*/
+/* load stattle ship package
+ * curl -X "GET" "https://api.stattleship.com/football/nfl/feats" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Token token=YOUR_ACCESS_TOKEN" \
+  -H "Accept: application/vnd.stattleship.com; version=1"
+ */

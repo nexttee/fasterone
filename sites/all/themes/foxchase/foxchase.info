@@ -1,0 +1,88 @@
+name = Fox Chase
+description = Drupal implementation of the Zurb Foundation 5.x framework.
+core = 7.x
+engine = phptemplate
+
+; Image appears on admin/appearance
+screenshot = images/screenshot.jpg
+
+; Reset styles with normalize
+stylesheets[all][] = css/normalize.css
+
+; Foundation framework stylesheets
+stylesheets[all][] = css/foundation.min.css
+
+; Custom Theme stylesheets
+stylesheets[all][] = css/theme.css
+
+; Modernizr acts as a shim for HTML5 elements for older browsers
+; as well as detection for mobile devices.
+scripts[] = js/vendor/modernizr.js
+
+; Foundation framework scripts.
+scripts[] = js/foundation.min.js
+scripts[] = js/theme.js
+
+fonts[google_fonts_api][] = "Libre Baskerville&subset=latin#700"
+fonts[google_fonts_api][] = "Libre Baskerville&subset=latin#italic"
+fonts[google_fonts_api][] = "Libre Baskerville&subset=latin#regular"
+fonts[google_fonts_api][] = "Roboto&subset=latin#100"
+fonts[google_fonts_api][] = "Roboto&subset=latin#100italic"
+fonts[google_fonts_api][] = "Roboto&subset=latin#300"
+fonts[google_fonts_api][] = "Roboto&subset=latin#300italic"
+fonts[google_fonts_api][] = "Roboto&subset=latin#500"
+fonts[google_fonts_api][] = "Roboto&subset=greek-ext#500italic"
+fonts[google_fonts_api][] = "Roboto&subset=latin#700"
+
+; Regions are output in the page.tpl.php
+regions[header]              = Header
+regions[help]                = Help
+regions[highlighted]         = Highlighted
+regions[featured]            = Featured
+regions[content]             = Content
+regions[sidebar_first]       = Left Sidebar
+regions[sidebar_second]      = Right Sidebar
+regions[triptych_top]        = Callout top
+regions[triptych_first]      = Callout one
+regions[triptych_middle]     = Callout two
+regions[triptych_last]       = Callout three
+regions[footer_firstcolumn]  = Footer one
+regions[footer_secondcolumn] = Footer two
+regions[footer_thirdcolumn]  = Footer three
+regions[footer_fourthcolumn] = Footer four
+regions[footer]              = Footer
+
+; Theme settings:
+
+; Top Bar
+settings[foxchase_top_bar_enable] = 1
+settings[foxchase_top_bar_grid] = 0
+settings[foxchase_top_bar_sticky] = 0
+settings[foxchase_top_bar_menu_text] = 'Menu'
+settings[foxchase_top_bar_custom_back_text] = 1
+settings[foxchase_top_bar_back_text] = 'Back'
+settings[foxchase_top_bar_is_hover] = 1
+settings[foxchase_top_bar_scrolltop] = 1
+settings[foxchase_top_bar_mobile_show_parent_link] = 1
+
+; Tooltips
+settings[foxchase_tooltip_enable] = 1
+settings[foxchase_tooltip_position] = 'top'
+settings[foxchase_tooltip_mode] = 'text'
+settings[foxchase_tooltip_text] = 'More information?'
+settings[foxchase_tooltip_touch] = 0
+
+; Styles and Scripts
+settings[foxchase_disable_core_css] = 0
+
+; Misc
+settings[foxchase_html_tags] = 1
+settings[foxchase_messages_modal] = 0
+settings[foxchase_pager_center] = 1
+
+; Information added by Drupal.org packaging script on 2015-03-20
+version = "7.x-5.0-rc6"
+core = "7.x"
+project = "foxchase"
+datestamp = "1426866784"
+

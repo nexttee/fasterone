@@ -162,6 +162,16 @@
   </main>
   <!--/.l-main -->
 
+  <!--.l-footer -->
+  <section class="l-footer panel row" role="contentinfo">
+    <?php if (!empty($page['triptych_top'])): ?>
+      <div class="footer columns">
+        <?php print render($page['triptych_top']); ?>
+      </div>
+    <?php endif; ?>
+  </section>
+  <!--/.l-footer -->
+
   <?php if (!empty($page['triptych_first']) || !empty($page['triptych_middle']) || !empty($page['triptych_last'])): ?>
     <!--.triptych-->
     <section class="l-triptych row">

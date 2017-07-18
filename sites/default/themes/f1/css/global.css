@@ -28,7 +28,7 @@ h2 {
 	margin-bottom:0;
 }
 .views-fluidgrid-item {
-	width:281px;
+	width:299px;
 	margin:5px;
 	border:2px solid #888;
 }
@@ -83,7 +83,7 @@ h2 {
 		padding-top:10px;
 	}
 	#block-menu-menu-social-media ul.menu li.first {
-		padding-left:100px;
+		xpadding-left:100px;
 	}
 	#block-menu-menu-social-media ul.menu li.last {
 		padding-right:0px;
@@ -152,7 +152,6 @@ tr.drafted-Yes {
 	text-decoration:line-through;
 }
 .zone-menu-wrapper ul.menu li {
-	float:left;
 	list-style:none;
 	background:none;
 	margin:0;
@@ -204,16 +203,12 @@ tr.drafted-Yes {
 @media all and (min-width:980px) {
 	#region-menu .region-inner {
 		list-style:none;
-		position:relative;
-		left:23%;
 	}
 	#region-menu .region-inner ul {
-		float:right;
-		position:relative;
-		left:-50%;
-		text-align:left;
+		text-align:center;
 	}
-	body.not-logged-in #region-menu .region-inner ul {
-		left:-56%;
+
+	#region-menu .region-inner ul li {
+		display: inline-block;
 	}
 }
