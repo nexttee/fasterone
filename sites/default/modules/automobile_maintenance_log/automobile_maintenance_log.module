@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Automobile Maintenance Log feature.
+ */
+
+include_once 'automobile_maintenance_log.features.inc';
