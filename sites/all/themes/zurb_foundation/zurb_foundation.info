@@ -12,27 +12,12 @@ stylesheets[all][] = css/normalize.css
 ; Foundation framework stylesheets
 stylesheets[all][] = css/foundation.min.css
 
-; Custom Theme stylesheets
-stylesheets[all][] = css/theme.css
-
 ; Modernizr acts as a shim for HTML5 elements for older browsers
 ; as well as detection for mobile devices.
 scripts[] = js/vendor/modernizr.js
 
 ; Foundation framework scripts.
 scripts[] = js/foundation.min.js
-scripts[] = js/theme.js
-
-fonts[google_fonts_api][] = "Libre Baskerville&subset=latin#700"
-fonts[google_fonts_api][] = "Libre Baskerville&subset=latin#italic"
-fonts[google_fonts_api][] = "Libre Baskerville&subset=latin#regular"
-fonts[google_fonts_api][] = "Roboto&subset=latin#100"
-fonts[google_fonts_api][] = "Roboto&subset=latin#100italic"
-fonts[google_fonts_api][] = "Roboto&subset=latin#300"
-fonts[google_fonts_api][] = "Roboto&subset=latin#300italic"
-fonts[google_fonts_api][] = "Roboto&subset=latin#500"
-fonts[google_fonts_api][] = "Roboto&subset=greek-ext#500italic"
-fonts[google_fonts_api][] = "Roboto&subset=latin#700"
 
 ; Regions are output in the page.tpl.php
 regions[header]              = Header
@@ -42,7 +27,6 @@ regions[featured]            = Featured
 regions[content]             = Content
 regions[sidebar_first]       = Left Sidebar
 regions[sidebar_second]      = Right Sidebar
-regions[triptych_top]        = Callout top
 regions[triptych_first]      = Callout one
 regions[triptych_middle]     = Callout two
 regions[triptych_last]       = Callout three
@@ -83,9 +67,9 @@ settings[zurb_foundation_html_tags] = 1
 settings[zurb_foundation_messages_modal] = 0
 settings[zurb_foundation_pager_center] = 1
 
-; Information added by Drupal.org packaging script on 2015-03-20
-version = "7.x-5.0-rc6"
+; Information added by Drupal.org packaging script on 2018-03-19
+version = "7.x-5.0-rc8"
 core = "7.x"
 project = "zurb_foundation"
-datestamp = "1426866784"
+datestamp = "1521471191"
 

@@ -1,5 +1,4 @@
 <?php
-// $Id: admin_menu_toolbar.install,v 1.2 2010/02/19 20:26:34 sun Exp $
 
 /**
  * @file
@@ -35,4 +34,3 @@ function admin_menu_toolbar_update_6300() {
     ->condition('name', 'admin_menu_toolbar')
     ->execute();
 }
-

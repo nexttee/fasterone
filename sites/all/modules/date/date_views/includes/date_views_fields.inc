@@ -5,13 +5,11 @@
  */
 
 /**
- *  Identify all potential date/timestamp fields.
+ * Identify all potential date/timestamp fields.
  *
- *  @return
- *    array with fieldname, type, and table.
- *  @see
- *    date_views_date_views_fields() which implements
- *    the hook_date_views_fields() for the core date fields.
+ * @return array
+ *   An array with fieldname, type, and table.
+ * @see date_views_date_views_fields()
  */
 function _date_views_fields($base = 'node') {
 
@@ -30,9 +28,8 @@ function _date_views_fields($base = 'node') {
   // Iterate over all the fields that Views knows about.
   $fields = array();
   foreach ((array) $all_fields as $alias => $val) {
-
     // Set up some default values.
-    $granularity = array('year', 'month', 'day', 'hour', 'minute');
+    $granularity = array('year', 'month', 'day', 'hour', 'minute', 'second');
     $tz_handling = 'site';
     $related_fields = array();
     $timezone_field = '';
@@ -47,6 +44,11 @@ function _date_views_fields($base = 'node') {
     $field_name = $tmp[1];
     $table_name = $tmp[0];
 
+    // Unset the date filter to avoid ugly recursion and broken values.
+    if ($field_name == 'date_filter') {
+      continue;
+    }
+
     $fromto = array($name, $name);
 
     // If we don't have a filter handler, we don't need to do anything more.
@@ -56,7 +58,7 @@ function _date_views_fields($base = 'node') {
     $handler = views_get_handler($table_name, $field_name, 'filter');
     $handler_name = $handler->definition['handler'];
 
-    // We don't care about anything but date handlers
+    // We don't care about anything but date handlers.
     if (empty($handler->definition['is date'])) {
       continue;
     }
@@ -68,22 +70,27 @@ function _date_views_fields($base = 'node') {
       $field = field_info_field($handler->definition['field_name']);
       $is_field = TRUE;
       switch ($field['type']) {
-       case 'date':
+        case 'date':
           $sql_type = DATE_ISO;
           break;
+
         case 'datestamp':
           break;
+
         case 'datetime':
           $sql_type = DATE_DATETIME;
           break;
+
         default:
           // If this is not a date field, nothing more to do.
           continue;
       }
 
-      $db_info = date_api_database_info($field);
+      $revision = in_array($base, array('node_revision')) ? FIELD_LOAD_REVISION : FIELD_LOAD_CURRENT;
+      $db_info = date_api_database_info($field, $revision);
       $name = $table_name . "." . $field_name;
-      $granularity = !empty($field['granularity']) ? $field['granularity'] : array('year', 'month', 'day', 'hour', 'minute');
+      $grans = array('year', 'month', 'day', 'hour', 'minute', 'second');
+      $granularity = !empty($field['granularity']) ? $field['granularity'] : $grans;
 
       $fromto = array(
         $table_name . '.' . $db_info['columns'][$table_name]['value'],
@@ -92,7 +99,7 @@ function _date_views_fields($base = 'node') {
 
       if (isset($field['settings']['tz_handling'])) {
         $tz_handling = $field['settings']['tz_handling'];
-        $db_info = date_api_database_info($field);
+        $db_info = date_api_database_info($field, $revision);
         if ($tz_handling == 'date') {
           $offset_field = $table_name . '.' . $db_info['columns'][$table_name]['offset'];
         }
